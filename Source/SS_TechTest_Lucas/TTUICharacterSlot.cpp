@@ -4,6 +4,7 @@
 #include "TTUICharacterSlot.h"
 #include "Runtime/UMG/Public/UMG.h"
 #include "TTUICharacter.h"
+#include "Math/Color.h"
 
 
 bool UTTUICharacterSlot::Initialize()
@@ -72,6 +73,7 @@ void UTTUICharacterSlot::UpdateCard()
 
 	if (!isLocked)
 	{
+		this->SetColorAndOpacity(FLinearColor(1.0f, 1.0f, 1.0f, 1.0f));
 		if (ButtonCurrentState == EButtonState::ACTIVE)
 		{
 			UnlockedImageSelected->SetVisibility(ESlateVisibility::Visible);
@@ -85,6 +87,7 @@ void UTTUICharacterSlot::UpdateCard()
 	}
 	else
 	{
+		this->SetColorAndOpacity(FLinearColor(1.0f, 1.0f, 1.0f, 0.6f));
 		if (ButtonCurrentState == EButtonState::ACTIVE)
 		{
 			LockedImageSelected->SetVisibility(ESlateVisibility::Visible);
